@@ -1,0 +1,12 @@
+-- default
+ALTER TABLE REST_ORDERS
+MODIFY OrderStatus DEFAULT 'OPEN';
+
+-- check
+ALTER TABLE REST_CUSTOMERS
+ADD CONSTRAINT chk_loyalty_level
+CHECK (LoyaltyLevel IN ('BRONZE', 'SILVER', 'GOLD'));
+
+-- new column
+ALTER TABLE REST_ORDERS
+ADD ServiceFee NUMBER(6,2);
