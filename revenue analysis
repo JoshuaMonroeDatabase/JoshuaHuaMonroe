@@ -1,0 +1,7 @@
+SELECT TRUNC(o.OrderDateTime) AS OrderDate,
+       SUM(p.Amount) AS DailyRevenue
+FROM REST_PAYMENTS p
+JOIN REST_ORDERS o
+    ON p.OrderID = o.OrderID
+GROUP BY TRUNC(o.OrderDateTime)
+ORDER BY OrderDate;
